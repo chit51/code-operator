@@ -424,15 +424,8 @@ function taskPage() {
 
   const repoSubmission = getRepoSubmissionForEmail(application.email);
   const baseTasks = taskCatalog[application.program] || taskCatalog["Web Development"];
-  const duration = parseInt(application.duration) || 1;
-  let tasks = [];
-  if (duration === 1) {
-    tasks = baseTasks.slice(0, 3).map((t, i) => [t[0], t[1], `Days ${i*10 + 1}-${(i+1)*10}`]);
-  } else if (duration === 3) {
-    tasks = baseTasks.slice(0, 3).map((t, i) => [t[0], t[1], `Month ${i+1}`]);
-  } else {
-    tasks = baseTasks.slice(0, 6).map((t, i) => [t[0], t[1], `Month ${i+1}`]);
-  }
+  const duration = parseInt(application.duration) || 6;
+  let tasks = baseTasks.map((t, i) => [t[0], t[1], `Month ${i+1}`]);
 
   const idNumber = Math.floor(Math.random() * 89999 + 10000);
   return shell(`<div class="task-shell"><aside class="task-sidebar"><h3>Intern Workspace</h3>
