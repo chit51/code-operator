@@ -54,92 +54,290 @@ const internshipDegrees = {
 
 const taskCatalog = {
   "Full Stack Java": [
-    ["Set up Java and React workspace", "Create the Spring Boot API and React client repositories.", "Setup"],
-    ["Design relational database entities", "Model users, products, orders, and relationships with JPA.", "Database"],
-    ["Build REST APIs with Spring Boot", "Create validated CRUD endpoints and consistent responses.", "Backend"],
-    ["Implement JWT authentication", "Secure protected endpoints and role-based access.", "Security"],
-    ["Connect the React frontend", "Consume APIs and build loading, success, and error states.", "Frontend"],
-    ["Test, deploy, and document", "Add tests, deployment configuration, and a complete README.", "Deployment"]
+    ["Set up Java and React workspace", "Create the Spring Boot API and React client repositories.", "Setup", {
+      theory: ["Spring Boot Architecture: Understand MVC pattern and dependency injection.", "React Component Lifecycle: How components mount, update, and unmount.", "RESTful API Principles: Methods, status codes, and endpoints."],
+      practice: ["Initialize a Spring Boot project with Web, JPA, and PostgreSQL dependencies.", "Set up a Vite React project with Tailwind CSS.", "Create a simple ping endpoint and fetch it from React."]
+    }],
+    ["Design relational database entities", "Model users, products, orders, and relationships with JPA.", "Database", {
+      theory: ["Entity Relationship Modeling: One-to-many, many-to-many mappings.", "JPA & Hibernate: Annotations like @Entity, @Id, @OneToMany.", "Database Normalization: Reducing redundancy in tables."],
+      practice: ["Create User and Product entities with relationships.", "Configure application.properties for database connection.", "Write Spring Data JPA Repositories for basic CRUD."]
+    }],
+    ["Build REST APIs with Spring Boot", "Create validated CRUD endpoints and consistent responses.", "Backend", {
+      theory: ["DTOs (Data Transfer Objects): Separating internal models from API contracts.", "Validation in Spring: @Valid, @NotNull, and Exception Handlers.", "Service Layer Pattern: Separating business logic from controllers."],
+      practice: ["Build a ProductController with GET, POST, PUT, DELETE methods.", "Add Bean Validation to input payloads.", "Implement a GlobalExceptionHandler for consistent error responses."]
+    }],
+    ["Implement JWT authentication", "Secure protected endpoints and role-based access.", "Security", {
+      theory: ["Spring Security Filter Chain: How requests are intercepted.", "JWT Structure: Header, Payload, Signature.", "Stateless Authentication: Why JWT is used instead of session cookies."],
+      practice: ["Add Spring Security and configure a SecurityFilterChain.", "Implement a JwtUtil class to generate and validate tokens.", "Create login/register endpoints and protect product endpoints."]
+    }],
+    ["Connect the React frontend", "Consume APIs and build loading, success, and error states.", "Frontend", {
+      theory: ["Axios vs Fetch: Making HTTP requests in React.", "State Management: Using React Context or Redux for global state.", "React Router: Client-side routing and protected routes."],
+      practice: ["Build an authentication context to store the JWT.", "Create a dashboard page that fetches protected data.", "Implement loading spinners and error toast notifications."]
+    }],
+    ["Test, deploy, and document", "Add tests, deployment configuration, and a complete README.", "Deployment", {
+      theory: ["Unit vs Integration Testing: JUnit and Mockito concepts.", "CI/CD Basics: Automating builds and deployments.", "Cloud Hosting: Heroku, Railway, or AWS EC2 deployment strategies."],
+      practice: ["Write unit tests for the ProductService.", "Configure a Dockerfile for the Spring Boot app.", "Deploy the frontend to Vercel and backend to Railway."]
+    }]
   ],
   "Java Internship": [
-    ["Java environment and Git setup", "Configure the JDK, IDE, repository, and project structure.", "Setup"],
-    ["Object-oriented programming", "Build classes using encapsulation, inheritance, and interfaces.", "Core Java"],
-    ["Collections and exception handling", "Process data safely using collections and custom exceptions.", "Core Java"],
-    ["File handling mini project", "Create a console application with persistent file storage.", "Project"],
-    ["JDBC database integration", "Connect Java to a relational database and perform CRUD operations.", "Database"],
-    ["Testing and documentation", "Add unit tests and explain the application architecture.", "Quality"]
+    ["Java environment and Git setup", "Configure the JDK, IDE, repository, and project structure.", "Setup", {
+      theory: ["JVM Architecture: How Java code is compiled and executed.", "Git Version Control: Branching, merging, and pull requests.", "Maven/Gradle Build Tools: Managing dependencies and project lifecycles."],
+      practice: ["Install JDK and configure environment variables.", "Set up IntelliJ IDEA or Eclipse workspace.", "Initialize a Git repository and push a Hello World project."]
+    }],
+    ["Object-oriented programming", "Build classes using encapsulation, inheritance, and interfaces.", "Core Java", {
+      theory: ["The 4 Pillars of OOP: Encapsulation, Abstraction, Inheritance, Polymorphism.", "Constructors and Access Modifiers: public, private, protected.", "Abstract Classes vs Interfaces: When to use which."],
+      practice: ["Design an Employee management class hierarchy.", "Implement interfaces for different payment methods.", "Use method overriding and overloading in practice."]
+    }],
+    ["Collections and exception handling", "Process data safely using collections and custom exceptions.", "Core Java", {
+      theory: ["Java Collections Framework: List, Set, Map hierarchies.", "Exception Handling: Checked vs Unchecked exceptions, try-catch-finally.", "Generics: Creating type-safe collections and classes."],
+      practice: ["Implement a custom ArrayList sorting using Comparators.", "Create custom exceptions for InvalidUserException.", "Process a large dataset using HashMaps for frequency counting."]
+    }],
+    ["File handling mini project", "Create a console application with persistent file storage.", "Project", {
+      theory: ["Java I/O Streams: Byte streams vs Character streams.", "Serialization: Saving object state to a file.", "NIO (New I/O): Modern file handling in Java."],
+      practice: ["Build a student record system that saves to a text file.", "Implement object serialization to save application state.", "Read from a CSV file and parse data into Java objects."]
+    }],
+    ["JDBC database integration", "Connect Java to a relational database and perform CRUD operations.", "Database", {
+      theory: ["JDBC Architecture: Drivers, Connections, Statements, ResultSets.", "SQL Basics: DDL, DML, and complex joins.", "Connection Pooling: Improving performance in enterprise apps."],
+      practice: ["Set up a MySQL database and import JDBC drivers.", "Create a DAO (Data Access Object) pattern for User operations.", "Use PreparedStatement to prevent SQL injection."]
+    }],
+    ["Testing and documentation", "Add unit tests and explain the application architecture.", "Quality", {
+      theory: ["Test-Driven Development (TDD): Writing tests before code.", "JUnit 5 Features: Assertions, Assumptions, and Parameterized tests.", "JavaDoc: Generating professional API documentation."],
+      practice: ["Write unit tests for the DAO layer.", "Add comprehensive JavaDoc comments to all public methods.", "Generate a final project report and README.md."]
+    }]
   ],
   "Web Development": [
-    ["Build a semantic landing page", "Create an accessible HTML structure for a real product.", "HTML"],
-    ["Create responsive layouts", "Use CSS Grid, Flexbox, and mobile breakpoints.", "CSS"],
-    ["Add interactive JavaScript", "Build menus, validation, filters, and dynamic UI states.", "JavaScript"],
-    ["Consume a public API", "Fetch, display, search, and handle API errors.", "API"],
-    ["Build a complete portfolio project", "Combine the skills into a polished multi-page website.", "Project"],
-    ["Deploy and document", "Publish the project and write setup and feature documentation.", "Deployment"]
+    ["Build a semantic landing page", "Create an accessible HTML structure for a real product.", "HTML", {
+      theory: ["Semantic HTML5: Using header, nav, main, article, and footer.", "Web Accessibility (a11y): ARIA labels, alt text, and keyboard navigation.", "SEO Basics: Meta tags, headings hierarchy, and structure."],
+      practice: ["Structure a complete landing page using only HTML.", "Run accessibility audits using Lighthouse.", "Add proper form inputs with correct types and labels."]
+    }],
+    ["Create responsive layouts", "Use CSS Grid, Flexbox, and mobile breakpoints.", "CSS", {
+      theory: ["CSS Box Model: Margins, borders, padding, and content.", "Flexbox vs Grid: 1D vs 2D layout strategies.", "Media Queries: Mobile-first responsive design approaches."],
+      practice: ["Build a responsive navigation bar with a hamburger menu.", "Create a product grid using CSS Grid.", "Implement a dark/light theme toggle using CSS variables."]
+    }],
+    ["Add interactive JavaScript", "Build menus, validation, filters, and dynamic UI states.", "JavaScript", {
+      theory: ["DOM Manipulation: Selecting elements, adding listeners, modifying attributes.", "ES6+ Features: Let/const, arrow functions, destructuring, template literals.", "Event Delegation: Efficiently handling events on multiple elements."],
+      practice: ["Implement client-side form validation.", "Create a dynamic filtering system for a product list.", "Build a custom modal dialog system."]
+    }],
+    ["Consume a public API", "Fetch, display, search, and handle API errors.", "API", {
+      theory: ["Asynchronous JavaScript: Promises, async/await, and the event loop.", "Fetch API: Making GET, POST requests and handling JSON.", "CORS and Error Handling: Dealing with network failures."],
+      practice: ["Fetch user data from a public API (like JSONPlaceholder).", "Display the data in a responsive card grid.", "Add search and pagination functionality."]
+    }],
+    ["Build a complete portfolio project", "Combine the skills into a polished multi-page website.", "Project", {
+      theory: ["State Management in Vanilla JS: Keeping UI in sync with data.", "Client-side Routing: Building SPAs without frameworks.", "Web Performance: Image optimization, minification, and lazy loading."],
+      practice: ["Build a personal portfolio with projects and contact form.", "Implement smooth scrolling and scroll animations.", "Optimize images and run a performance audit."]
+    }],
+    ["Deploy and document", "Publish the project and write setup and feature documentation.", "Deployment", {
+      theory: ["Static Site Hosting: Netlify, Vercel, and GitHub Pages.", "Continuous Deployment: Triggering builds on git push.", "Technical Writing: Structuring a professional project README."],
+      practice: ["Deploy the portfolio to Vercel/Netlify.", "Set up a custom domain (optional) and SSL.", "Write a README explaining the architecture and technologies used."]
+    }]
   ],
   "Python Internship": [
-    ["Python environment and Git setup", "Create a virtual environment and structured repository.", "Setup"],
-    ["Functions and data structures", "Solve practical problems with reusable Python functions.", "Python"],
-    ["Object-oriented Python", "Model a real system with classes and clean modules.", "OOP"],
-    ["Work with files and APIs", "Read structured data and consume an external REST API.", "Integration"],
-    ["Build an automation project", "Automate a repetitive workflow with logging and validation.", "Project"],
-    ["Test and document", "Add automated tests and professional project documentation.", "Quality"]
+    ["Python environment and Git setup", "Create a virtual environment and structured repository.", "Setup", {
+      theory: ["Python Virtual Environments: venv, pip, and isolation.", "PEP 8 Style Guide: Naming conventions and code formatting.", "Git Workflows: Managing feature branches in Python projects."],
+      practice: ["Create a virtual environment and generate a requirements.txt.", "Set up flake8 or black for code formatting.", "Initialize a Git repository with a standard Python .gitignore."]
+    }],
+    ["Functions and data structures", "Solve practical problems with reusable Python functions.", "Python", {
+      theory: ["Python Collections: Lists, Tuples, Dictionaries, Sets.", "List Comprehensions and Generators: Memory-efficient iterations.", "Functional Python: map, filter, lambda functions."],
+      practice: ["Build a text analyzer that counts word frequencies.", "Implement sorting algorithms using list comprehensions.", "Write generator functions to process large dummy data streams."]
+    }],
+    ["Object-oriented Python", "Model a real system with classes and clean modules.", "OOP", {
+      theory: ["Python Classes: __init__, self, and dunder methods.", "Inheritance and Mixins: Designing flexible class hierarchies.", "Modules and Packages: Organizing code into directories."],
+      practice: ["Design an Inventory Management system using classes.", "Implement dunder methods for custom object string representations.", "Split the application into multiple functional modules."]
+    }],
+    ["Work with files and APIs", "Read structured data and consume an external REST API.", "Integration", {
+      theory: ["File I/O in Python: Context managers (with open).", "Working with JSON and CSV modules.", "Requests Library: Making HTTP calls easily."],
+      practice: ["Fetch data from a weather API and parse the JSON.", "Save the processed data into a local CSV file.", "Handle network timeouts and API errors gracefully."]
+    }],
+    ["Build an automation project", "Automate a repetitive workflow with logging and validation.", "Project", {
+      theory: ["Web Scraping Basics: BeautifulSoup and HTML parsing.", "Python Logging Module: Replacing print statements for production.", "Task Scheduling: Running scripts periodically."],
+      practice: ["Scrape a website for specific data and clean it.", "Implement logging with rotating file handlers.", "Create a script that sends a daily automated email report."]
+    }],
+    ["Test and document", "Add automated tests and professional project documentation.", "Quality", {
+      theory: ["Pytest Framework: Fixtures, assertions, and parameterized tests.", "Docstrings: Sphinx and Google-style documentation.", "CI for Python: Setting up GitHub Actions."],
+      practice: ["Write unit tests for the inventory classes using Pytest.", "Add Google-style docstrings to all functions.", "Create a GitHub Action to run tests on push."]
+    }]
   ],
   "Data Science": [
-    ["Prepare the analysis environment", "Set up Jupyter, Pandas, NumPy, and a clean repository.", "Setup"],
-    ["Clean a real dataset", "Handle missing values, duplicates, types, and outliers.", "Data"],
-    ["Exploratory data analysis", "Find patterns using statistics and visualizations.", "Analysis"],
-    ["Build a machine-learning model", "Train, validate, and compare predictive models.", "Machine Learning"],
-    ["Create an interactive dashboard", "Present insights with a clear data story.", "Visualization"],
-    ["Publish the final case study", "Document methodology, limitations, and business findings.", "Portfolio"]
+    ["Prepare the analysis environment", "Set up Jupyter, Pandas, NumPy, and a clean repository.", "Setup", {
+      theory: ["Data Science Ecosystem: Conda, Jupyter Notebooks, VS Code.", "NumPy Arrays vs Python Lists: Performance and memory.", "Pandas DataFrames: Series, indices, and vectorization."],
+      practice: ["Install Anaconda and set up a new conda environment.", "Create a Jupyter Notebook and load a sample dataset.", "Perform basic NumPy matrix operations."]
+    }],
+    ["Clean a real dataset", "Handle missing values, duplicates, types, and outliers.", "Data", {
+      theory: ["Missing Data Strategies: Imputation vs Drop.", "Outlier Detection: Z-scores and IQR methods.", "Data Type Conversion: Memory optimization in Pandas."],
+      practice: ["Identify and handle missing values in a messy dataset.", "Detect and cap outliers in numerical columns.", "Convert string dates to datetime objects and extract features."]
+    }],
+    ["Exploratory data analysis", "Find patterns using statistics and visualizations.", "Analysis", {
+      theory: ["Descriptive Statistics: Mean, median, variance, correlations.", "Matplotlib vs Seaborn: Choosing the right plotting library.", "Distribution Analysis: Histograms, boxplots, scatter plots."],
+      practice: ["Generate a correlation heatmap for dataset features.", "Plot the distribution of the target variable.", "Write a summary report of key findings from the EDA."]
+    }],
+    ["Build a machine-learning model", "Train, validate, and compare predictive models.", "Machine Learning", {
+      theory: ["Train/Test Split & Cross-Validation: Preventing overfitting.", "Supervised Learning: Regression vs Classification.", "Scikit-Learn API: Estimators, transformers, and pipelines."],
+      practice: ["Split data and scale features using StandardScaler.", "Train a Random Forest and Logistic Regression model.", "Evaluate models using Accuracy, Precision, Recall, and F1-Score."]
+    }],
+    ["Create an interactive dashboard", "Present insights with a clear data story.", "Visualization", {
+      theory: ["Dashboard Frameworks: Streamlit, Dash, or Gradio.", "Interactive Visualizations: Plotly or Altair.", "Data Storytelling: Guiding the user through insights."],
+      practice: ["Build a Streamlit app to explore the dataset.", "Add interactive sliders and dropdowns to filter data.", "Deploy the Streamlit app to Streamlit Cloud."]
+    }],
+    ["Publish the final case study", "Document methodology, limitations, and business findings.", "Portfolio", {
+      theory: ["Structuring a Data Science Portfolio: The README methodology.", "Business Impact: Translating metrics to business value.", "Reproducibility: requirements.txt vs environment.yml."],
+      practice: ["Export the Jupyter notebook to a clean HTML/PDF report.", "Write a README explaining the problem, approach, and results.", "Publish the code and report on GitHub."]
+    }]
   ],
   "Digital Marketing": [
-    ["Create a brand audit", "Review audience, positioning, channels, and competitors.", "Strategy"],
-    ["Build a content calendar", "Plan four weeks of platform-specific content.", "Content"],
-    ["Perform SEO keyword research", "Map search intent and keywords to useful pages.", "SEO"],
-    ["Design a paid campaign", "Define targeting, creative, budget, and conversion goals.", "Advertising"],
-    ["Set up campaign analytics", "Create a measurement plan and reporting dashboard.", "Analytics"],
-    ["Present a growth strategy", "Combine findings into an actionable marketing proposal.", "Portfolio"]
+    ["Create a brand audit", "Review audience, positioning, channels, and competitors.", "Strategy", {
+      theory: ["SWOT Analysis: Strengths, Weaknesses, Opportunities, Threats.", "Buyer Personas: Demographic and psychographic profiling.", "Competitor Benchmarking: Analyzing share of voice."],
+      practice: ["Select a real brand and perform a complete SWOT analysis.", "Create 2 detailed buyer personas.", "Analyze 3 competitors and document their marketing channels."]
+    }],
+    ["Build a content calendar", "Plan four weeks of platform-specific content.", "Content", {
+      theory: ["Content Pillars: Themes that guide content creation.", "Platform Best Practices: Instagram vs LinkedIn vs Twitter.", "Content Repurposing: Maximizing ROI on content creation."],
+      practice: ["Define 3 core content pillars for the brand.", "Draft a 4-week content calendar in Google Sheets/Excel.", "Write captions and specify visual requirements for 5 posts."]
+    }],
+    ["Perform SEO keyword research", "Map search intent and keywords to useful pages.", "SEO", {
+      theory: ["Search Intent: Informational, Navigational, Transactional.", "Long-tail vs Short-tail Keywords: Volume vs Competition.", "On-Page SEO: Title tags, meta descriptions, headings."],
+      practice: ["Use Google Keyword Planner (or free tools) to find 20 keywords.", "Map keywords to specific stages of the buying funnel.", "Write SEO-optimized titles and descriptions for 3 web pages."]
+    }],
+    ["Design a paid campaign", "Define targeting, creative, budget, and conversion goals.", "Advertising", {
+      theory: ["Pay-Per-Click (PPC) Basics: CPC, CTR, CPA, ROAS.", "Facebook/Instagram Ads vs Google Ads: Push vs Pull marketing.", "A/B Testing: Isolating variables to improve ad performance."],
+      practice: ["Draft a Google Search Ad campaign structure (Campaign > Ad Group > Ad).", "Write ad copy (Headline, Description) for two variations.", "Define targeting criteria and daily budget limits."]
+    }],
+    ["Set up campaign analytics", "Create a measurement plan and reporting dashboard.", "Analytics", {
+      theory: ["Google Analytics 4 (GA4): Events, conversions, and traffic acquisition.", "UTM Parameters: Tracking campaign traffic accurately.", "KPIs (Key Performance Indicators): Defining success metrics."],
+      practice: ["Create a tracking URL using a UTM builder.", "Define 5 KPIs for the mock campaign.", "Design a mockup of a monthly reporting dashboard layout."]
+    }],
+    ["Present a growth strategy", "Combine findings into an actionable marketing proposal.", "Portfolio", {
+      theory: ["Pitching Marketing Strategies: Structure of a compelling proposal.", "Budget Allocation: Distributing spend across channels.", "ROI Projections: Estimating results based on industry benchmarks."],
+      practice: ["Compile the audit, calendar, SEO, and ad strategy into a slide deck.", "Create a theoretical 3-month timeline and budget plan.", "Record a 5-minute loom video presenting the strategy."]
+    }]
   ],
   "HR Internship": [
-    ["Create a job description", "Write a clear role profile and candidate requirements.", "Recruitment"],
-    ["Build a screening scorecard", "Create a fair and repeatable candidate evaluation system.", "Hiring"],
-    ["Design an onboarding checklist", "Plan a professional first-week employee experience.", "Onboarding"],
-    ["Draft HR policy documents", "Prepare concise leave, conduct, and remote-work policies.", "Policy"],
-    ["Create an engagement survey", "Measure employee experience and summarize results.", "Engagement"],
-    ["Complete an HR operations case study", "Present recommendations based on a realistic scenario.", "Portfolio"]
+    ["Create a job description", "Write a clear role profile and candidate requirements.", "Recruitment", {
+      theory: ["Job Analysis: Identifying core responsibilities and skills.", "Employer Branding: Attracting top talent through JD tone.", "Inclusive Language: Removing bias from job descriptions."],
+      practice: ["Write a JD for a 'Junior Software Developer'.", "Ensure the JD uses inclusive, gender-neutral language.", "Define 'Must-Have' vs 'Nice-to-Have' skills clearly."]
+    }],
+    ["Build a screening scorecard", "Create a fair and repeatable candidate evaluation system.", "Hiring", {
+      theory: ["Structured vs Unstructured Interviews: Reducing bias.", "Competency-Based Interviewing: The STAR method.", "Assessment Matrices: Weighting different criteria."],
+      practice: ["Create an interview scorecard in Excel.", "Draft 5 behavioral interview questions using the STAR framework.", "Define a grading rubric (1-5) for candidate answers."]
+    }],
+    ["Design an onboarding checklist", "Plan a professional first-week employee experience.", "Onboarding", {
+      theory: ["The 4 C's of Onboarding: Compliance, Clarification, Culture, Connection.", "Pre-boarding vs Onboarding: Setting expectations early.", "Employee Retention: How onboarding impacts tenure."],
+      practice: ["Create a 30-day onboarding checklist for the new hire.", "Draft a 'Welcome to the Team' email.", "Plan a first-week schedule including meetings and training."]
+    }],
+    ["Draft HR policy documents", "Prepare concise leave, conduct, and remote-work policies.", "Policy", {
+      theory: ["HR Compliance & Labor Laws: Understanding legal foundations.", "Policy Tone: Authoritative yet accessible communication.", "Remote Work Challenges: Productivity, security, and communication."],
+      practice: ["Write a 1-page 'Work from Anywhere' policy.", "Draft a clear 'Paid Time Off (PTO)' procedure.", "Ensure policies outline consequences and reporting structures."]
+    }],
+    ["Create an engagement survey", "Measure employee experience and summarize results.", "Engagement", {
+      theory: ["eNPS (Employee Net Promoter Score): Measuring loyalty.", "Survey Design: Avoiding leading questions and survey fatigue.", "Action Planning: What to do after gathering feedback."],
+      practice: ["Design a 10-question employee satisfaction survey.", "Include a mix of Likert-scale and open-ended questions.", "Draft a communication plan to announce the survey to staff."]
+    }],
+    ["Complete an HR operations case study", "Present recommendations based on a realistic scenario.", "Portfolio", {
+      theory: ["Conflict Resolution Strategies: Mediation and documentation.", "Performance Improvement Plans (PIP): Structure and goals.", "Change Management: Guiding teams through transitions."],
+      practice: ["Read a provided case study regarding an underperforming employee.", "Draft a realistic Performance Improvement Plan (PIP).", "Present the resolution steps in a final portfolio document."]
+    }]
   ],
   "Business Development": [
-    ["Research the target market", "Define customer segments, competitors, and opportunities.", "Research"],
-    ["Build a prospect list", "Create a qualified lead sheet with clear selection criteria.", "Sales"],
-    ["Write outreach sequences", "Prepare professional email and LinkedIn messages.", "Communication"],
-    ["Create a sales pipeline", "Track stages, follow-ups, probability, and next actions.", "CRM"],
-    ["Prepare a client proposal", "Present value, scope, timeline, and commercial terms.", "Proposal"],
-    ["Deliver a growth case study", "Recommend a measurable business development strategy.", "Portfolio"]
+    ["Research the target market", "Define customer segments, competitors, and opportunities.", "Research", {
+      theory: ["Market Segmentation: B2B vs B2C approaches.", "TAM, SAM, SOM: Calculating market sizes.", "Value Proposition Canvas: Aligning product with customer needs."],
+      practice: ["Select a B2B SaaS product and define its TAM.", "Create 2 Ideal Customer Profiles (ICPs).", "Perform a competitive analysis of 3 direct competitors."]
+    }],
+    ["Build a prospect list", "Create a qualified lead sheet with clear selection criteria.", "Sales", {
+      theory: ["Lead Qualification Frameworks: BANT, MEDDIC.", "Sourcing Channels: LinkedIn Sales Navigator, ZoomInfo, Apollo.", "Data Enrichment: Maintaining accurate CRM data."],
+      practice: ["Build a lead tracker in Excel/Google Sheets.", "Find 20 theoretical prospects matching the ICP.", "Enrich the list with title, company, industry, and contact info."]
+    }],
+    ["Write outreach sequences", "Prepare professional email and LinkedIn messages.", "Communication", {
+      theory: ["Cold Email Anatomy: Subject lines, hook, value prop, CTA.", "The Rule of 7: Multi-touch outreach cadences.", "Personalization at Scale: Using variables in outreach."],
+      practice: ["Draft a 3-step cold email sequence.", "Write two LinkedIn connection request variations.", "Ensure emails are concise, focused on pain points, and have clear CTAs."]
+    }],
+    ["Create a sales pipeline", "Track stages, follow-ups, probability, and next actions.", "CRM", {
+      theory: ["Sales Funnel Stages: Prospecting, Qualification, Proposal, Won/Lost.", "CRM Best Practices: Keeping data clean and updated.", "Sales Velocity: Metrics that drive revenue."],
+      practice: ["Map out 5 customized pipeline stages for your product.", "Define exit criteria for moving deals between stages.", "Set up a free CRM (like HubSpot or Notion template) with dummy data."]
+    }],
+    ["Prepare a client proposal", "Present value, scope, timeline, and commercial terms.", "Proposal", {
+      theory: ["Proposal Structure: Executive summary, scope, pricing, terms.", "Objection Handling: Preempting common concerns.", "Pricing Strategies: Tiered, value-based, cost-plus."],
+      practice: ["Design a 5-page client proposal presentation.", "Draft clear pricing tiers (Basic, Pro, Enterprise).", "Include an ROI calculator or case study in the proposal."]
+    }],
+    ["Deliver a growth case study", "Recommend a measurable business development strategy.", "Portfolio", {
+      theory: ["Strategic Partnerships: Co-marketing, integrations, referrals.", "Go-To-Market (GTM) Strategy: Launching in new regions/verticals.", "Sales Forecasting: Predicting future revenue."],
+      practice: ["Identify 3 potential strategic partners for the product.", "Outline a 6-month GTM strategy for a new feature.", "Compile all research, sequences, and proposals into a portfolio."]
+    }]
   ],
   "Content Writing": [
-    ["Define audience and tone", "Create a practical brand voice and reader persona.", "Strategy"],
-    ["Write an SEO blog article", "Research and produce a structured long-form article.", "SEO"],
-    ["Create website copy", "Write benefit-led homepage and service-page content.", "Copywriting"],
-    ["Build a social content pack", "Create platform-specific posts and calls to action.", "Social"],
-    ["Edit for clarity and accuracy", "Apply a professional editing and fact-checking workflow.", "Editing"],
-    ["Publish a writing portfolio", "Present polished samples with context and outcomes.", "Portfolio"]
+    ["Define audience and tone", "Create a practical brand voice and reader persona.", "Strategy", {
+      theory: ["Brand Voice vs Tone: Consistency vs context.", "Reader Personas: Understanding pain points and motivations.", "Content Strategy Basics: Top, Middle, and Bottom of funnel (TOFU/MOFU/BOFU)."],
+      practice: ["Create a Brand Voice Guidelines document (3 adjectives).", "Draft a reader persona for a tech startup blog.", "Map 3 content ideas to different funnel stages."]
+    }],
+    ["Write an SEO blog article", "Research and produce a structured long-form article.", "SEO", {
+      theory: ["On-Page SEO for Writers: H1/H2 tags, keyword density, internal linking.", "Search Intent: Matching content format to what users want.", "Readability: Flesch-Kincaid score, short paragraphs, formatting."],
+      practice: ["Outline a 1,000-word blog post on a tech topic.", "Write the introduction using the PAS (Problem-Agitate-Solution) formula.", "Draft the full article with proper headings and SEO formatting."]
+    }],
+    ["Create website copy", "Write benefit-led homepage and service-page content.", "Copywriting", {
+      theory: ["Features vs Benefits: Selling the outcome, not the tool.", "Hero Copy Formulas: Headline, subheadline, CTA.", "Microcopy: Buttons, error messages, and tooltips."],
+      practice: ["Write copy for a SaaS homepage (Hero, Social Proof, 3 Features).", "Draft a high-converting 'About Us' page.", "Create 5 variations of Call-to-Action (CTA) buttons."]
+    }],
+    ["Build a social content pack", "Create platform-specific posts and calls to action.", "Social", {
+      theory: ["Platform Nuances: Twitter threads vs LinkedIn carousels vs Insta captions.", "Hooks: Grabbing attention in the first 2 seconds.", "Hashtag Strategies: Reach vs relevance."],
+      practice: ["Repurpose the SEO blog post into a 5-tweet Twitter thread.", "Write a LinkedIn text post promoting the article.", "Draft 3 Instagram captions with appropriate hashtags."]
+    }],
+    ["Edit for clarity and accuracy", "Apply a professional editing and fact-checking workflow.", "Editing", {
+      theory: ["Self-Editing Techniques: Reading aloud, cutting fluff.", "Style Guides: AP Style vs Chicago vs Custom.", "Fact-Checking & Plagiarism: Ensuring credibility."],
+      practice: ["Use Hemingway Editor to reduce the article's reading level to Grade 8.", "Identify and remove passive voice in a provided sample text.", "Run content through a plagiarism checker."]
+    }],
+    ["Publish a writing portfolio", "Present polished samples with context and outcomes.", "Portfolio", {
+      theory: ["Portfolio Platforms: Notion, WordPress, Medium, or custom.", "Case Study Format: Brief, approach, and results.", "Pitching: How to reach out to publications or clients."],
+      practice: ["Compile the blog, web copy, and social posts into a clean PDF/Notion site.", "Write a brief context paragraph for each piece of work.", "Draft a pitch email to a theoretical client."]
+    }]
   ],
   "Graphic Design": [
-    ["Create a visual moodboard", "Define style, references, colors, and typography.", "Research"],
-    ["Design a brand identity", "Create a logo concept and basic brand guidelines.", "Branding"],
-    ["Build a social media kit", "Design consistent posts for multiple formats.", "Social"],
-    ["Create a marketing poster", "Apply hierarchy, composition, and persuasive messaging.", "Print"],
-    ["Design a web landing page", "Create a responsive high-fidelity interface mockup.", "UI Design"],
-    ["Publish a design case study", "Present process, iterations, and final deliverables.", "Portfolio"]
+    ["Create a visual moodboard", "Define style, references, colors, and typography.", "Research", {
+      theory: ["Design Theory Basics: Balance, contrast, alignment, repetition.", "Color Psychology: How colors affect perception and emotion.", "Typography Grouping: Serif, sans-serif, display, and pairing."],
+      practice: ["Collect references and build a moodboard in Figma/Milanote.", "Extract a primary and secondary color palette.", "Select and pair two complementary fonts."]
+    }],
+    ["Design a brand identity", "Create a logo concept and basic brand guidelines.", "Branding", {
+      theory: ["Logo Types: Wordmarks, lettermarks, pictorial marks.", "Scalability & Versatility: Designing for app icons to billboards.", "Brand Guidelines: Establishing rules for consistency."],
+      practice: ["Sketch 5 logo concepts and digitize the best one.", "Create variations (monochrome, horizontal, vertical).", "Draft a 1-page brand guideline sheet (logo usage, colors, fonts)."]
+    }],
+    ["Build a social media kit", "Design consistent posts for multiple formats.", "Social", {
+      theory: ["Platform Dimensions: Aspect ratios for IG, Twitter, LinkedIn.", "Visual Hierarchy: Guiding the eye through the design.", "Templates vs Custom: Balancing speed and creativity."],
+      practice: ["Design 3 Instagram square posts maintaining brand consistency.", "Create a cohesive LinkedIn carousel (5 slides).", "Design a Twitter header image."]
+    }],
+    ["Create a marketing poster", "Apply hierarchy, composition, and persuasive messaging.", "Print", {
+      theory: ["Print vs Digital: CMYK vs RGB, DPI and bleeds.", "Grid Systems: Organizing complex information.", "Negative Space: Using empty space strategically."],
+      practice: ["Design an A4 event poster.", "Set up the file with proper bleeds and margins for print.", "Apply a grid system to align text and imagery perfectly."]
+    }],
+    ["Design a web landing page", "Create a responsive high-fidelity interface mockup.", "UI Design", {
+      theory: ["UI Fundamentals: Buttons, inputs, states (hover/active).", "Responsive Design: Desktop vs Mobile constraints.", "Figma Basics: Frames, components, and auto-layout."],
+      practice: ["Design the hero section of a landing page in Figma.", "Create reusable button and card components.", "Design the mobile responsive version of the hero section."]
+    }],
+    ["Publish a design case study", "Present process, iterations, and final deliverables.", "Portfolio", {
+      theory: ["Portfolio Presentation: Behance vs Dribbble vs Personal Site.", "Telling the Design Story: Problem, process, solution.", "Mockups: Showcasing work in real-world contexts (devices, print)."],
+      practice: ["Place the logo and poster into realistic Photoshop mockups.", "Write a case study explaining the design decisions.", "Assemble all assets into a final Behance-style presentation."]
+    }]
   ],
   "Video Editing": [
-    ["Organize an editing project", "Set up footage, audio, proxies, and a clean timeline.", "Setup"],
-    ["Create a short-form edit", "Produce a paced vertical video with captions.", "Editing"],
-    ["Edit a narrative sequence", "Use continuity, rhythm, and purposeful transitions.", "Storytelling"],
-    ["Improve audio and color", "Clean dialogue and apply consistent color correction.", "Post Production"],
-    ["Create motion graphics", "Add titles, lower thirds, and branded animation.", "Motion"],
-    ["Export a showreel", "Deliver platform-ready files and a polished portfolio reel.", "Portfolio"]
+    ["Organize an editing project", "Set up footage, audio, proxies, and a clean timeline.", "Setup", {
+      theory: ["Non-Linear Editing (NLE): Premiere Pro, DaVinci Resolve basics.", "File Management: Folder structures and naming conventions.", "Proxies: Editing high-res 4K footage smoothly."],
+      practice: ["Create a standard folder structure (Footage, Audio, Graphics, Exports).", "Import footage and generate proxies in your NLE.", "Sync audio and video clips on the timeline."]
+    }],
+    ["Create a short-form edit", "Produce a paced vertical video with captions.", "Editing", {
+      theory: ["Short-form Trends: TikTok/Reels pacing, hooks, and retention.", "Vertical Framing: 9:16 aspect ratio rules.", "Jump Cuts & J/L Cuts: Basic editing transitions."],
+      practice: ["Edit a 30-second vertical video from raw footage.", "Apply jump cuts to remove dead space and 'ums'.", "Generate and style dynamic on-screen captions."]
+    }],
+    ["Edit a narrative sequence", "Use continuity, rhythm, and purposeful transitions.", "Storytelling", {
+      theory: ["Continuity Editing: The 180-degree rule and matching action.", "Pacing & Rhythm: Cutting to the beat vs emotional beats.", "B-Roll: Using overlay footage to tell the story."],
+      practice: ["Assemble a 2-minute interview or narrative sequence.", "Use B-roll to cover cuts and enhance the storytelling.", "Implement J and L cuts to smooth out audio transitions."]
+    }],
+    ["Improve audio and color", "Clean dialogue and apply consistent color correction.", "Post Production", {
+      theory: ["Audio Mixing Basics: Levels, EQ, and compression.", "Color Correction vs Grading: Fixing vs stylizing.", "LUTs (Look Up Tables): Applying cinematic looks."],
+      practice: ["Clean up background noise and level dialogue to -6db.", "Apply basic color correction (White balance, exposure, contrast).", "Add background music and duck the audio during dialogue."]
+    }],
+    ["Create motion graphics", "Add titles, lower thirds, and branded animation.", "Motion", {
+      theory: ["Keyframing Basics: Position, scale, opacity, and rotation.", "Easing: Linear vs Bezier interpolation for smooth motion.", "Essential Graphics/Fusion: Building reusable templates."],
+      practice: ["Animate a custom lower-third for the speaker's name.", "Add an animated intro title sequence.", "Use keyframes to animate a photo or graphic overlay (Ken Burns effect)."]
+    }],
+    ["Export a showreel", "Deliver platform-ready files and a polished portfolio reel.", "Portfolio", {
+      theory: ["Export Codecs & Formats: H.264, ProRes, Bitrates.", "The Editor's Showreel: Showcasing rhythm, versatility, and skill.", "Feedback Loops: Versioning and client reviews."],
+      practice: ["Export the previous projects in high quality for web.", "Edit a 60-second fast-paced showreel combining your best cuts.", "Upload to YouTube/Vimeo with proper descriptions."]
+    }]
   ]
 };
 
@@ -497,6 +695,23 @@ function taskPage() {
             <span><h4 style="margin:0 0 4px; font-size:16px;">${i+1}. ${t[0]}</h4><p style="margin:0; font-size:14px; color:#475569;">${t[1]}</p></span>
             <span class="tag" style="color:#526078;background:#edf1f8">${t[2]}</span>
           </div>
+
+          ${t[3] ? `
+          <div style="background: #0f172a; border-radius: 12px; margin-top: 24px; border: 1px solid #1e293b; overflow: hidden;">
+            <div style="padding: 20px; border-bottom: 1px solid rgba(255,255,255,0.05);">
+              <h4 style="color: #f8fafc; font-size: 16px; margin: 0 0 16px 0; display: flex; align-items: center; gap: 8px;">📚 Theory Concepts:</h4>
+              <ul style="margin: 0; padding-left: 24px; color: #cbd5e1; font-size: 14px; line-height: 1.8;">
+                ${t[3].theory.map(item => `<li style="margin-bottom: 8px;">${item}</li>`).join('')}
+              </ul>
+            </div>
+            <div style="padding: 20px;">
+              <h4 style="color: #f8fafc; font-size: 16px; margin: 0 0 16px 0; display: flex; align-items: center; gap: 8px;">🛠️ Hands-On Practice:</h4>
+              <ul style="margin: 0; padding-left: 24px; color: #cbd5e1; font-size: 14px; line-height: 1.8;">
+                ${t[3].practice.map(item => `<li style="margin-bottom: 8px;">${item}</li>`).join('')}
+              </ul>
+            </div>
+          </div>
+          ` : ''}
           <div id="task-submission-${i}" style="margin-top: 16px; padding-top: 16px; border-top: 1px dashed #e2e8f0; display: flex; justify-content: flex-end; align-items: center; gap: 12px;">
             <span style="flex:1; color:#64748b; font-size:13px;">Click submit to share your repo and documentation.</span>
             <button class="btn btn-primary btn-sm submit-task-btn" data-task="${i}">Submit Task</button>
