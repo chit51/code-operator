@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 430 92" role="img">
+  <title>Code Operators</title>
+  <desc>Code Operators wordmark with a modern code bracket symbol.</desc>
+
+  <defs>
+    <linearGradient id="icon-bg" x1="8" y1="8" x2="78" y2="82" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#17284A"/>
+      <stop offset="1" stop-color="#091426"/>
+    </linearGradient>
+    <linearGradient id="code-stroke" x1="18" y1="20" x2="72" y2="70" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#38BDF8"/>
+      <stop offset=".55" stop-color="#648BFF"/>
+      <stop offset="1" stop-color="#9B6CFF"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="112" y1="0" x2="390" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#47C8FF"/>
+      <stop offset=".55" stop-color="#6D8BFF"/>
+      <stop offset="1" stop-color="#A47AFF"/>
+    </linearGradient>
+    <filter id="glow" x="-80%" y="-80%" width="260%" height="260%">
+      <feGaussianBlur stdDeviation="2.2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <rect x="2" y="2" width="84" height="84" rx="20" fill="url(#icon-bg)" stroke="#294473"/>
+  <circle cx="44" cy="44" r="31" fill="none" stroke="#18365F" stroke-width="1.5"/>
+  <path d="M34 25 18 44l16 19M54 25l16 19-16 19" fill="none" stroke="url(#code-stroke)" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)"/>
+  <path d="m49 22-10 44" fill="none" stroke="#F472B6" stroke-width="3.8" stroke-linecap="round" filter="url(#glow)"/>
+  <circle cx="72" cy="18" r="3.5" fill="#34D399"/>
+
+  <text x="108" y="43" fill="#F8FAFC" font-family="Inter, Arial, sans-serif" font-size="32" font-weight="800" letter-spacing="2">CODE</text>
+  <text x="108" y="70" fill="url(#accent)" font-family="Inter, Arial, sans-serif" font-size="21" font-weight="700" letter-spacing="7">OPERATORS</text>
+  <rect x="108" y="78" width="260" height="2" rx="1" fill="url(#accent)" opacity=".7"/>
+</svg>
